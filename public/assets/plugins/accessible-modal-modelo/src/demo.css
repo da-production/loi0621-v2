@@ -1,0 +1,150 @@
+/*
+ * Modelo - Demo Styles
+ *
+ * Author: Vanessa Coles
+ * Version: 1.0
+ * Description:
+*/
+
+html {
+	font-size: 16px;
+}
+
+body {
+	color: #c2ccf9;
+	font-size: 1em;
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+	background: #2939ce;
+	line-height: 1.7;
+}
+
+small {
+	display: block;
+	color: #fff;
+	font-weight: 600;
+}
+
+code {
+	display: inline-block;
+	margin: 0 2px;
+	padding: 2px 4px;
+	color: #2939ce;
+	font-family: "Fira Mono", Courier, monospace;
+	font-weight: 700;
+	line-height: 1;
+	background: #adb5ff;
+	border-radius: 2px;
+}
+
+#demo {
+	position: relative;
+}
+
+/*
+.trim {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 10px;
+	background: #fff;
+}
+*/
+
+.content {
+	margin: 0 auto;
+	padding: 3.5rem;
+	max-width: 800px;
+	width: 100%;
+}
+
+.content a {
+	color: #fff;
+	font-weight: 600;
+	transition: all .4s ease-in-out;
+}
+
+.content a:hover {
+	text-decoration: none;
+}
+
+.content h1,
+.content h2,
+.content h3 {
+	color: #fff;
+	line-height: 1;
+}
+
+.content h1 {
+	margin-bottom: 8px;
+	font-size: 2.75em;
+	font-weight: 300;
+}
+
+.content h2 {
+	font-size: 1.75rem;
+	font-weight: 600;
+}
+
+.content ul,
+.content ol {
+	margin: 0;
+	padding: 0 0 0 15px;
+}
+
+header {
+	margin-bottom: 16px;
+}
+
+.tagline {
+	margin-top: 0;
+	margin-bottom: 32px;
+	color: #fff;
+	font-size: 1.25rem;
+	font-weight: 700;
+}
+
+section {
+	padding: 16px 0;
+}
+
+footer {
+	margin-top: 40px;
+}
+
+/* Demo Modal Styles */
+
+.modal {
+	font-family: "Open Sans", sans-serif;
+}
+
+.modal-title {
+	font-size: 1.33rem;
+	font-weight: 600;
+}
+
+button[data-modal="open-modal"] {
+	-webkit-appearance: none;
+	appearance: none;
+	margin: 0;
+	padding: 0 35px;
+	height: 55px;
+	color: #1825a0;
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: uppercase;
+	background: #fff;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	transition: all .4s ease-in-out;
+}
+
+button[data-modal="open-modal"]:hover,
+button[data-modal="open-modal"]:active,
+button[data-modal="open-modal"]:focus {
+	color: #fff;
+	background: #0e1766;
+}
+
+

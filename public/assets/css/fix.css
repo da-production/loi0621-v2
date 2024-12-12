@@ -1,0 +1,146 @@
+.direction-rtl{
+    direction: rtl;
+}
+.display-block{
+    display: block;
+}
+
+.position-relative{
+    position: relative;
+}
+
+.position-absolute{
+    position: absolute;
+}
+
+.inscription-absolute{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: block;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    /* background-color: #f8f9fc; */
+    background-color: white;
+    z-index: 999;
+    text-align: center;
+    line-height: 120px;
+    border: 1px solid #f1f1f1;
+    /* box-shadow: 0px 0px 0px 10px inset #fff, 0px 0px 0px 11px inset #268eff; */
+}
+
+.cairo-arabic-justify{
+    font-family: 'Mirza', cursive;
+    direction: rtl !important;
+    text-align: justify !important;
+}
+.cairo-arabic-center{
+    font-family: 'Mirza', cursive;
+    direction: rtl !important;
+    text-align: center !important;
+}
+.cairo-arabic-right{
+    font-family: 'Mirza', cursive;
+    direction: rtl !important;
+    text-align: right !important;
+}
+.f-22px{
+    font-size: 22px;
+}
+.block-100w{
+    display: block;
+    width: 100%;
+}
+
+@media print {
+         
+.cairo-arabic-justify{
+    font-family: 'Mirza', cursive;
+    direction: rtl !important;
+    text-align: justify !important;
+}
+.cairo-arabic-center{
+    font-family: 'Mirza', cursive;
+    direction: rtl !important;
+    text-align: center !important;
+}
+.cairo-arabic-right{
+    font-family: 'Mirza', cursive;
+    direction: rtl !important;
+    text-align: right !important;
+}   
+}
+
+
+.input-success-readonly{
+    background-color: #e6e9f1 !important;
+    border:2px dashed #2855a7!important;
+    font-weight: bolder;
+}
+.border-right-success{
+    border-left: 5px solid #00ca06 !important;
+}
+
+.border-right-danger{
+    border-left: 5px solid #ca0000 !important;
+}
+
+.border-right-warning{
+    border-left: 5px solid #ffbc00 !important;
+}
+
+.modal-container {
+    left: 0px;
+    top: 0px;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: #c5c5c5a1;
+    backdrop-filter: blur(6px);
+    z-index: 9;
+}
+
+.modal-content {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    width: 600px;
+    padding: 10px;
+}
+
+.modal-content {
+    max-height: 500px;
+    overflow-y: auto;
+    background-color: #f5f6f7;
+}
+
+.ticket-button{
+    position: fixed;
+    bottom: 25px;
+    left: 80px;
+    font-size: 40px;
+}
+
+.profile .ticket-reply {
+    padding: 20px 25px;
+    margin: 5px 0px;
+    background-color: rgba(0,0,0,0.05);
+    border-radius: 5px;
+}
+.profile .ticket-reply.highlight .ticket-reply-info{
+    padding: 2px 2px;
+    margin-bottom: 10px;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+.profile .ticket-reply.highlight{
+    background-color: #fff6d7;
+}
+
+.h-0{
+    height: 0px;
+}

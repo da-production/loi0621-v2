@@ -1,0 +1,51 @@
+#keyboardInputMaster {
+    border: none;
+    color: #000000;
+    background-color: #ffffff;
+    text-align: left;
+    z-index: 1000000;
+    padding: 15px;
+    display: table-caption;
+    width: auto;
+    box-shadow: 0px 0px 41px #33333354;
+    border-radius: 15px;
+}
+
+#keyboardInputMaster thead tr{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#keyboardInputMaster thead tr td span {
+    padding: 2px 4px;
+    font: bold 11px Arial,sans-serif;
+    border: 1px solid #e0dcdc;
+    background-color: #ffffff;
+    cursor: pointer;
+    margin-left: 5px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #54718a59;
+}
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td {
+    vertical-align: middle;
+    padding: 7px 6px;
+    white-space: pre;
+    font: normal 15px 'Lucida Console',monospace;
+    cursor: pointer;
+    margin: 5px;
+    line-height: 10px;
+    border: 1px solid #e0dcdc45;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 1px #54718a59;
+    border-radius: 10px;
+}
+
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.hover {
+    border: none;
+    background-color: #052875;
+    color: #fff;
+    transform: scale(1.5);
+    /* line-height: 20px; */
+    transition: all .1s;
+}
