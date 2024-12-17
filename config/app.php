@@ -1,7 +1,11 @@
 <?php
 
 return [
+    /**
+     * Rate limit configuration
+     */
 
+    'emp_limit' => env('EMP_LIMITE_CHECK',5),
     /*
     |--------------------------------------------------------------------------
     | Application Name

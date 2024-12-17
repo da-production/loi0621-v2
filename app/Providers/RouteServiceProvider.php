@@ -36,7 +36,7 @@ class RouteServiceProvider extends ServiceProvider
         //
         // Rate limit products endpoints to 30 requests per minute by user ID
         RateLimiter::for('cnas-check-api', function (Request $request) {
-            return Limit::perMinute(10)->by($request->user()?->id);
+            return Limit::perMinute(config('app.emp_limit'))->by($request->user()?->id);
         });
         parent::boot();
     }
