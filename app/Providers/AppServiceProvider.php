@@ -38,9 +38,12 @@ class AppServiceProvider extends ServiceProvider
     {
         DisplaDirectives::register();
         //
-        // if(preg_match("/www.cnac.dz/i", $_SERVER['SERVER_NAME'])) {
-        //     \URL::forceScheme('https');
-        // }
+        if(config('app.env') === 'production') {
+            
+            if(preg_match("/www.cnac.dz/i", $_SERVER['SERVER_NAME'])) {
+                \URL::forceScheme('https');
+            }
+        }
         $o = Cache::rememberForever('options', function(){
             return Option::all();
         });
