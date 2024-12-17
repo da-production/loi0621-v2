@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'asset_url' => "https://www.cnac.dz/loi0621_v2",
+    'asset_url' => config('app.env') == 'local' ? null : config('app.url'),
 
     /*
     |--------------------------------------------------------------------------
@@ -68,7 +68,7 @@ return [
     |
     */
 
-    'app_url' => "https://www.cnac.dz/loi0621_v2",
+    'app_url' => config('app.env') == 'local' ? null : config('app.url'),
 
     /*
     |--------------------------------------------------------------------------

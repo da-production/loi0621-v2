@@ -122,6 +122,7 @@
                     </div>
                     <span>Tableau de board</span></a>
                 </li>
+                @display ('statistique','view-any')
                 <li class="">
                   <a href="{{ route('administrateur.statistique') }}">
                     <div class="icon-w">
@@ -129,14 +130,16 @@
                     </div>
                     <span>Statistique</span></a>
                 </li>
-                
-                <li class="">
+                @enddisplay
+                @display ('ticket','view-any')
+                  <li class="">
                   <a href="{{ route('administrateur.tickets') }}">
                     <div class="icon-w">
                       <i class="picons-thin-icon-thin-0106_clipboard_box_archive_documents"></i>
                     </div>
                     <span>Gestion des Tickets</span></a>
-                </li>
+                  </li>
+                @enddisplay
               </li>
               
               <li class="">
@@ -163,6 +166,8 @@
                     </div>
                     <span>Formation</span></a>
                 </li>
+                
+              @display ('option','view-any')
               <li class="sub-header">
                 <span>Parametre</span>
               </li>
@@ -213,6 +218,7 @@
                   </div>
                 </div>
               </li>
+              @enddisplay
             </ul>
             
             <hr />

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Directives\DisplaDirectives;
 use App\Repository\Employeur\TaskEmployeur;
 use App\Repository\Employeur\TaskEmployeurInterface;
 use Illuminate\Cache\RateLimiter;
@@ -35,10 +36,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        DisplaDirectives::register();
         //
-        if(preg_match("/www.cnac.dz/i", $_SERVER['SERVER_NAME'])) {
-            \URL::forceScheme('https');
-        }
+        // if(preg_match("/www.cnac.dz/i", $_SERVER['SERVER_NAME'])) {
+        //     \URL::forceScheme('https');
+        // }
         $o = Cache::rememberForever('options', function(){
             return Option::all();
         });

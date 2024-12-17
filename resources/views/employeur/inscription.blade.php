@@ -28,11 +28,11 @@
 @endphp
 
 @section('styles')
-        <!-- selectize css -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/selectize.css') }}" />
+<!-- selectize css -->
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/selectize.css') }}" />
 
-        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/nice-select.css') }}" />
-        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/landing.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/nice-select.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/landing.css') }}" />
 
 <link rel="stylesheet" type="text/css" href="http://www.arabic-keyboard.org/keyboard/keyboard.css">
 <style>
@@ -45,6 +45,12 @@
         width: 20px;
         right: 20px;
         display: none;
+    }
+    .rate-limiter{
+        position: absolute;
+        right: 10px;
+        top: 40px;
+        color: #8492a6;
     }
 </style>
 @endsection
@@ -104,8 +110,10 @@
                                         <div class="col-md-12">
                                             <div class="alert alert-warning">
                                                 <p> <h5>Important !</h5>
+                                                    {{-- <span>- Vous pouvez effectuer jusqu'à 10 requêtes par minute. Veuillez patienter si vous avez dépassé la limite.</span>
+                                                    <br> --}}
                                                     {{-- <span>La vérification du code de l'employeur se fait à la fois au niveau du client et du côté serveur. Cette opération peut durer quelques secondes.</span> --}}
-                                                    <span>La vérification du Code Employeur peut durer quelques secondes.</span>
+                                                    <span>-     La vérification du Code Employeur peut durer quelques secondes.</span>
                                                     <br>
                                                     <span>merci de ne pas quitter ou fermer la page</span>
                                                 </p>
@@ -113,9 +121,10 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group app-label">
-                                                <div class="form-button">
+                                                <div class="form-button position-relative">
                                                     <label class="text-muted">Code Employeur (N° Adhérent)</label>
                                                 <input name="code_employeur" id="code_employeur" type="text" class="form-control employeur_code" value="{{ old('code_employeur') }}" placeholder="" required autocomplete="false">
+                                                <span class="rate-limiter">10</span>
                                                 <img class="spinner" src="{{ asset('assets/images/loading-buffering.gif') }}" alt="">
                                                 @error('code_employeur')
                                                     <p class="text-danger">{{ $message }}</p>
@@ -182,7 +191,7 @@
                                         </div>
                                     </div>
 
-                                     <div class="row">
+                                    <div class="row">
                                         <div class="col-md-12" style="direction: rtl;">
                                             {!! NoCaptcha::display() !!}
                                             @error('g-recaptcha-response')
@@ -209,14 +218,13 @@
 
 
 @section('before-appjs')
-        <!-- selectize js -->
-        <script src="{{ asset('assets/js/selectize.min.js') }}"></script>
+<!-- selectize js -->
+<script src="{{ asset('assets/js/selectize.min.js') }}"></script>
 
-        <script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
 @endsection
 
 @section('script')
 {!! NoCaptcha::renderJs() !!}
 <x-scripts.employeur.register-component />
-
 @endsection

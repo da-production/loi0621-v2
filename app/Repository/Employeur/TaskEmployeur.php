@@ -32,29 +32,11 @@ class TaskEmployeur implements TaskEmployeurInterface{
         $numbers = \substr(auth()->user()->code_employeur, 0, 8);
         return $model::create([
             'numero'                        => auth()->user()->cod_wilaya . $numbers,
-            'cod_stat'                      => $request->cod_stat,
-            'cod_branche'                   => $request->cod_branche,
-            'date_debut_activite'           => $request->date_debut_activite,
             'cod_wilaya'                    => auth()->user()->cod_wilaya,
-            'adresse'                       => $request->adresse,
-            'adresseAr'                     => $request->adresseAr,
-            'raison_social'                 => $request->raison_social,
-            'raison_social_Ar'              => $request->raison_social_Ar,
-            'sigle'                         => $request->sigle,
             'code_employeur'                => auth()->user()->code_employeur,
-            'representant'                  => $request->representant,
-            'representantAr'                => $request->representantAr,
-            'qualite'                       => $request->qualite,
-            'qualiteAr'                     => $request->qualiteAr,
-            'tel'                           => $request->tel,
-            'mob'                           => $request->mob,
-            'email_entreprise'              => $request->email_entreprise,
-            'RIB'                           => $request->RIB,
-            'NIF'                           => $request->NIF,
-            'NIS'                           => $request->NIS,
-            'RC'                            => $request->RC,
-            'nbr_travailleurs'              => $request->nbr_travailleurs,
-            'condition_accepte'             => $request->condition_accepte,
+            ...$request->only(['cod_stat','cod_branche','date_debut_activite','adresse','adresseAr',
+            'raison_social','raison_social_Ar','sigle','representant','representantAr','qualite','qualiteAr',
+            'tel','mob','email_entreprise','RIB','NIF','NIS','RC','nbr_travailleurs','condition_accepte']),
         ]);
     }
 }

@@ -11,6 +11,7 @@ class CheckEmployeurStatusCnasAdminWire extends Component
     public bool $status;
     public string $message;
     public string $code_employeur;
+
     public function render()
     {
         return view('livewire.employeur.check-employeur-status-cnas-admin-wire');

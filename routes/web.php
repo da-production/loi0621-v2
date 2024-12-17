@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('index');
 })->name('accueil');
 
-Route::post("/emp/code/check","HomeController@EmployeurCode")->name('employeur.code.check');
+Route::post("/emp/code/check","HomeController@EmployeurCode")->middleware('throttle:cnas-check-api')->name('employeur.code.check');
 Route::post("/emp/code/check2","HomeController@EmployeurCode2")->middleware('auth')->name('employeur.code.check2');
 
 Route::get('code',"Auth\LoginController@codeForm")->name('employeur.code.form');

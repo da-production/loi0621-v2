@@ -12,7 +12,6 @@
     "devDependencies": {
         "axios": "^1.5.0",
         "bootstrap": "^4.0.0",
-        "cross-env": "^7.0",
         "jquery": "^3.2",
         "laravel-mix": "^6.0.49",
         "lodash": "^4.17.13",
@@ -24,6 +23,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "cross-env": "^7.0.3",
         "laravel-echo": "^1.15.0",
         "pusher-js": "^8.0.2"
     }

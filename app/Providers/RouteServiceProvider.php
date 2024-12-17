@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
@@ -31,7 +34,10 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-
+        // Rate limit products endpoints to 30 requests per minute by user ID
+        RateLimiter::for('cnas-check-api', function (Request $request) {
+            return Limit::perMinute(10)->by($request->user()?->id);
+        });
         parent::boot();
     }
 

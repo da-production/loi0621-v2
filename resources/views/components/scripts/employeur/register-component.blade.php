@@ -82,6 +82,7 @@
                                 submit = false;
                                 return submit;
                             }
+                            $('.rate-limiter').text(response.headers['x-ratelimit-remaining']);
                             if(response.data.code == 1){
                                 // $(".code_emplyeur_message").show().text("le code employeur n'est pas valide");
                                 // $("#code_employeur").addClass('check').blur().attr('readonly',false);
@@ -104,13 +105,24 @@
                             }
                         })
                         .catch(function (error) {
-                            swal({
-                                title: "Attention",
-                                text: "une erreur s'est produite veuillez réessayer",
-                                icon: "warning",
-                                button: "Fermer",
-                                dangerMode: true,
-                            });
+                            if(error.response?.status == 429){
+                                swal({
+                                    title: "Limite de requêtes atteinte",
+                                    text: "Vous avez dépassé le nombre maximal de 10 requêtes par minute. Veuillez réessayer plus tard.",
+                                    icon: "warning",
+                                    button: "Fermer",
+                                    dangerMode: true,
+                                });
+                            }else{
+                                swal({
+                                    title: "Attention",
+                                    text: "une erreur s'est produite veuillez réessayer",
+                                    icon: "warning",
+                                    button: "Fermer",
+                                    dangerMode: true,
+                                });
+                            }
+                            
                             $('.spinner').hide();
                             $("#code_employeur").removeClass("border-success");
                             $("#code_employeur").val("");
