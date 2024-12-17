@@ -124,7 +124,7 @@
                                                 <div class="form-button position-relative">
                                                     <label class="text-muted">Code Employeur (N° Adhérent)</label>
                                                 <input name="code_employeur" id="code_employeur" type="text" class="form-control employeur_code" value="{{ old('code_employeur') }}" placeholder="" required autocomplete="false">
-                                                <span class="rate-limiter">10</span>
+                                                <span class="rate-limiter"></span>
                                                 <img class="spinner" src="{{ asset('assets/images/loading-buffering.gif') }}" alt="">
                                                 @error('code_employeur')
                                                     <p class="text-danger">{{ $message }}</p>
