@@ -108,7 +108,7 @@
                             if(error.response?.status == 429){
                                 swal({
                                     title: "Limite de requêtes atteinte",
-                                    text: "Vous avez dépassé le nombre maximal de 10 requêtes par minute. Veuillez réessayer plus tard.",
+                                    text: "Vous avez dépassé le nombre maximal de {{ config('app.emp_limit') }} requêtes par minute. Veuillez réessayer plus tard.",
                                     icon: "warning",
                                     button: "Fermer",
                                     dangerMode: true,
