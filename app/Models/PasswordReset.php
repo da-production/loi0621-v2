@@ -10,5 +10,7 @@ class PasswordReset extends Model
 {
     use HasFactory, SsmsDateTime;
 
+    protected $fillable = ['email', 'token'];
+
     protected $table = 'password_resets';
 }
