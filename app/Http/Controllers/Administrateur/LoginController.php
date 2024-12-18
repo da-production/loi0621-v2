@@ -57,7 +57,7 @@ class LoginController extends Controller
                 $option = Option::where('name','expire_duration')->select('value')->first();
                 Administrateur::where('email',$user->email)->update([
                     'password'      => Hash::make(request('new_password')),
-                    'expire_at'     => Carbon::now()->addMonths(2),
+                    'expire_at'     => Carbon::now()->addMonths(2)->format('Y-d-m H:i:s'),
                     // 'expire_at'     => Carbon::now()->addMonths((int)$option->value),
                 ]);
                 DB::table('password_resets')->where('email',$user->email)->delete();
