@@ -4,12 +4,13 @@ namespace App\Models;
 
 use App\Events\AdministrateurUpdatedEvent;
 use App\Observers\AdministrateurObserver;
+use App\Traits\SsmsDateTime;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class Administrateur extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, SsmsDateTime;
     // public function getDateFormat()
     // {
     //     return 'Y-d-m H:i:s.v';

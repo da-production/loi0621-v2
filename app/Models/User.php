@@ -5,15 +5,11 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Traits\SsmsDateTime;
 
 class User extends Authenticatable
 {
-    use Notifiable;
-    // public function getDateFormat()
-    // {
-    //     return 'Y-d-m H:i:s.v';
-    // }
-
+    use Notifiable, SsmsDateTime;
     /**
      * The attributes that are mass assignable.
      *

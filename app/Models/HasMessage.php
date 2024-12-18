@@ -3,12 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\SsmsDateTime;
 
 class HasMessage extends Model
 {
     //
-    public function getDateFormat()
-    {
-        return 'Y-d-m H:i:s.v';
-    }
+    use SsmsDateTime;
 }

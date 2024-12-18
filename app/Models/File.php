@@ -3,10 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\SsmsDateTime;
 
 class File extends Model
 {
     //
+    use SsmsDateTime;
     protected $fillable = ['id','title','slug','url','code_file','file_type','code_employeur','code_demande'];
 
     public static function TypeFormation($type = null) {

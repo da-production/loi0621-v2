@@ -4,10 +4,11 @@ namespace App\Models;
 
 use App\Traits\HasUuid;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\SsmsDateTime;
 
 class Employeur extends Model
 {
-    use HasUuid;
+    use HasUuid, SsmsDateTime;
     protected $fillable = [
         'id','numero','cod_stat','cod_branche','date_debut_activite',
         'cod_wilaya','adresse','adresseAr','raison_social','raison_social_Ar',

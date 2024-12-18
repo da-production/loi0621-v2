@@ -4,11 +4,12 @@ namespace App\Models;
 
 use App\Traits\HasUuid;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\SsmsDateTime;
 
 class Subvention extends Demande
 {
     //
-    use HasUuid;
+    use HasUuid, SsmsDateTime;
     protected $fillable = [
         'id', 'cod_demande', 'code_employeur', 'nbr_travailleurs',
         'reception_dos', 'intervenant', 'ref_reception', 'nature_depot_dos',

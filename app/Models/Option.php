@@ -3,10 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\SsmsDateTime;
 
 class Option extends Model
 {
     //
+    use SsmsDateTime;
 
     protected $fillable = [
         'name', 'value', 'instance', 'widget' ,'order', 'autoload'

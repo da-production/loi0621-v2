@@ -2,13 +2,11 @@
 
 namespace App\Models;
 
+use App\Traits\SsmsDateTime;
 use Illuminate\Database\Eloquent\Model;
 
 class Wilaya extends Model
 {
     //
-    public function getDateFormat()
-    {
-        return 'Y-d-m H:i:s.v';
-    }
+    use SsmsDateTime;
 }

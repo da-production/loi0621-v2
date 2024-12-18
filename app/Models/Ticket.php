@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\SsmsDateTime;
 
 class Ticket extends Model
 {
     //
+    use SsmsDateTime;
     protected $fillable = [
         'code_employeur','objet','sujet','status','categorie_id','type_id','owner', 'administrateur_id'
     ];

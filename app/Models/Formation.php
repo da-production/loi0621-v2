@@ -5,10 +5,11 @@ namespace App\Models;
 use App\Traits\HasUuid;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\SsmsDateTime;
 
 class Formation extends Demande
 {
-    use HasUuid;
+    use HasUuid, SsmsDateTime;
     //
     // public function getDateFormat()
     // {

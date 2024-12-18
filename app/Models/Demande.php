@@ -6,16 +6,12 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
+use App\Traits\SsmsDateTime;
 
 class Demande extends Model
 {
-    use HasFactory;
+    use HasFactory, SsmsDateTime;
 
-    
-    // public function getDateFormat()
-    // {
-    //     return 'Y-d-m H:i:s.v';
-    // }
 
     public static function Status($statu = null){
         $status = [
