@@ -15,7 +15,7 @@ trait SsmsDateTime{
             'SQL2008 R2' => 'Y-m-d H:i:s.v',
             'SQL2012' => 'Y-m-d H:i:s.v',
             'SQL2014' => 'Y-m-d H:i:s.v',
-            'SQL2016' => 'Y-d-m H:i:s.v',
+            'SQL2016' => 'Y-d-m H:i:s',
             'SQL2017' => 'Y-m-d H:i:s.v',
             'SQL2019' => 'Y-m-d H:i:s.v',
             'SQL2022' => 'Y-m-d H:i:s.v',
