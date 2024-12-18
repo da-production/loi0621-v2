@@ -212,6 +212,7 @@
       if($(this).val() == '1')
       {
         nbr.text('Nombre des effectifs recrutés en CDI ');
+        nbr.attr('placeholder','Nombre des effectifs recrutés en CDI ');
         date_c.text("Date de la demande de subvention ");
         nbr_t.attr('readonly',false);
         return true;
@@ -219,6 +220,7 @@
       if($(this).val() == '2')
       {
         nbr.text('Nombre des effectifs mis en formation ');
+        nbr.attr('placeholder','Nombre des effectifs mis en formation');
         date_c.text("Date de la demande du remboursement de la cotisation globale de sécurité sociale");
         nbr_t.attr('readonly',false);
         return true;

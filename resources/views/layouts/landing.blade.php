@@ -184,7 +184,7 @@
             <div class="row justify-content-center">
                 <div class="col-12">
                     <div class="">
-                        <p class="mb-0">© {{ Date('Y') }} - Mesure d'encouragement d'Aide à l'Emploi - v1.0.0 - Design by DESI. <a href="https://www.cnac.dz">www.cnac.dz</a></p>
+                        <p class="mb-0">© {{ Date('Y') }} - Mesure d'encouragement d'Aide à l'Emploi - v2.0.0 - Design by DESI. <a href="https://www.cnac.dz">www.cnac.dz</a></p>
                     </div>
                 </div>
             </div>

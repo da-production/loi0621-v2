@@ -54,7 +54,7 @@
                         <input wire:model="date_exercice"
                             type="text"
                             class="form-control resume"
-                            placeholder="YYYY-DD-MM" autocomplete="off" id="date_exercice">
+                            placeholder="aaaa-mm-jj" autocomplete="off" id="date_exercice">
 
                         @error('date_exercice')
                             <p class="text-danger">{{ $message }}</p>
