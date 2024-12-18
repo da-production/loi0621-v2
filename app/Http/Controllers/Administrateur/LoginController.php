@@ -6,6 +6,7 @@ use App\Models\Administrateur;
 use App\Models\DoubleAuth;
 use App\Http\Controllers\Controller;
 use App\Models\Option;
+use App\Models\PasswordReset;
 use App\Notifications\CodeAuthNotification;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -126,7 +127,7 @@ class LoginController extends Controller
                 $exp = Carbon::parse($user->expire_at)->timestamp;
                 if($now > $exp){
                     $token = Str::random(60);
-                    DB::table('password_resets')->insert([
+                    PasswordReset::create([
                         'token'     => $token,
                         'email'     => $user->email,
                         'created_at'=> Carbon::now()->addMinute(15)
