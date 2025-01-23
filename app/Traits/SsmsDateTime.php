@@ -9,16 +9,16 @@ trait SsmsDateTime{
     {
         // Tableau associatif pour stocker les formats de date en fonction de la version SQL
         $dateFormat = [
-            'SQL2000' => 'Y-m-d H:i:s',
-            'SQL2005' => 'Y-m-d H:i:s',
-            'SQL2008' => 'Y-m-d H:i:s.v',
-            'SQL2008 R2' => 'Y-m-d H:i:s.v',
-            'SQL2012' => 'Y-m-d H:i:s.v',
-            'SQL2014' => 'Y-m-d H:i:s.v',
-            'SQL2016' => 'Y-d-m H:i:s.v',
-            'SQL2017' => 'Y-m-d H:i:s.v',
-            'SQL2019' => 'Y-m-d H:i:s.v',
-            'SQL2022' => 'Y-m-d H:i:s.v',
+            'SQL2000' => 'Y-m-d H:i:s',           // SQL Server 2000
+            'SQL2005' => 'Y-m-d H:i:s',           // SQL Server 2005
+            'SQL2008' => 'Y-m-d H:i:s.v',         // SQL Server 2008 (supports milliseconds)
+            'SQL2008 R2' => 'Y-m-d H:i:s.v',      // SQL Server 2008 R2 (supports milliseconds)
+            'SQL2012' => 'Y-m-d H:i:s.v',         // SQL Server 2012 (supports milliseconds)
+            'SQL2014' => 'Y-m-d H:i:s.v',         // SQL Server 2014 (supports milliseconds)
+            'SQL2016' => 'Y-m-d H:i:s.v',         // SQL Server 2016 (supports milliseconds)
+            'SQL2017' => 'Y-m-d H:i:s.v',         // SQL Server 2017 (supports milliseconds)
+            'SQL2019' => 'Y-m-d H:i:s.v',         // SQL Server 2019 (supports milliseconds)
+            'SQL2022' => 'Y-m-d H:i:s.v',         // SQL Server 2022 (supports milliseconds)
         ];
 
         // Exécute une requête SQL pour obtenir des informations sur la version SQL en cours d'exécution
