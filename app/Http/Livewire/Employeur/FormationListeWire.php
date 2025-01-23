@@ -18,7 +18,10 @@ class FormationListeWire extends Component
 
     
     public function fetchAll(){
-        return Formation::where('code_employeur',auth()->user()->code_employeur)
+        return Formation::where([
+            ['code_employeur',auth()->user()->code_employeur],
+            ['annuler','=', Null]
+        ])
         ->orderBy('updated_at','DESC')
         ->paginate(2);
     }

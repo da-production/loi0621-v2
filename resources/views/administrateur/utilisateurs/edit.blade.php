@@ -43,7 +43,7 @@
                   <label for="">wilaya</label>
                   <select name="cod_wilaya" id="cod_wilaya" class="form-control">
                     @foreach ($wilayas as $wilaya)
-                      <option value="{{ $wilaya->cod_wilaya }}" selected="{{ $user->cod_wilaya == $wilaya->cod_wilaya ? 'true' : 'false' }}">{{ $wilaya->des_fr }} - {{ $wilaya->des_ar }}</option>
+                      <option value="{{ $wilaya->cod_wilaya }}" {{ $user->cod_wilaya == $wilaya->cod_wilaya ? 'selected' : '' }}>{{ $wilaya->des_fr }} - {{ $wilaya->des_ar }}</option>
                     @endforeach
                   </select>
                   @error('cod_wilaya')

@@ -77,4 +77,8 @@ class Demande extends Model
          */
         dd("start $start", "end $end", $between);
     }
+
+    protected $casts = [
+        'annuler_at'        => 'string',
+    ];
 }

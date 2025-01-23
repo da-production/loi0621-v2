@@ -25,7 +25,7 @@
                         <label for="">Type de mesure</label>
                         <select class="form-control" wire:model="type" id="type">
                             <option>Type de mesure</option>
-                            @if (is_null($subvention))
+                            @if (is_null($subvention) || !is_null($subAnnuler))
                             <option value="1">Subvention</option>
                             @endif
                             @if (is_null($formation))

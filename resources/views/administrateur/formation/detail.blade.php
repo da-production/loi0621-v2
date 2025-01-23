@@ -1,5 +1,7 @@
 @extends('layouts.administrateur')
-
+@section('styles')
+  @livewireStyles()
+@endsection
 @section('content')
 {{-- {{ dd($demande->employeur) }} --}}
 <div class="row" x-data="{ 
@@ -12,6 +14,9 @@
     <div class="element-content col-md-12">
       <div class="tablo-with-chart">
         <div class="row">
+          @if (is_null($demande->decision_dos) && is_null($demande->annuler))
+            <livewire:admin.annuler-demande-wire type="formation" :cod_demande="$demande->cod_demande" />
+          @endif
           @if ($demande->reception_dos && is_null($demande->decision_dos))
           
           <div class="col-12">
@@ -34,6 +39,7 @@
             @endif
           </div>
           @endif
+          @if (is_null($demande->annuler))
           <div class="col-sm-12 col-xxl-12">
             <div class="tablos">
               <div class="row mb-xl-2 mb-xxl-3">
@@ -102,6 +108,12 @@
               </div>
             </div>
           </div>
+          @endif
+          @if ($demande->annuler)
+          <div class="col-12 alert alert-warning border ">
+            la demande a été annulée le <strong>{{ $demande->annuler_at }}</strong>
+          </div>
+          @endif
         </div>
       </div>
     </div>
@@ -407,6 +419,7 @@
 @endsection
 
 @section('scripts')
+@livewireScripts()
 <script>
     function printFunction() {
         window.print();

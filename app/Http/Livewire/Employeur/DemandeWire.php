@@ -11,6 +11,8 @@ class DemandeWire extends Component
 {
     public $canMakeNewRequest = false;
     public $subvention = null;
+    public $subAnnuler = null;
+    public $formAnnuler = null;
     public $formation = null;
 
     public $type;
@@ -35,14 +37,15 @@ class DemandeWire extends Component
             ['decision_dos','=',NULL]
         ])->latest()->first();
         $this->subvention = is_null($subvention) ? null : true;
-
+        $this->subAnnuler = $subvention?->annuler;
         $formation = Formation::where([
             ['code_employeur',auth()->user()->code_employeur],
             ['decision_dos','=',NULL]
         ])->latest()->first();
         $this->formation = is_null($formation) ? null : true;
+        $this->formAnnuler = $formation?->annuler;
 
-        if(is_null($subvention) || is_null($formation)) return $this->canMakeNewRequest = true;
+        if(is_null($subvention) || is_null($formation) || !is_null($subvention?->annuler) || !is_null($formation?->annuler)) return $this->canMakeNewRequest = true;
         return $this->canMakeNewRequest = false;
     }
 

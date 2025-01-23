@@ -17,7 +17,10 @@ class SubventionListeWire extends Component
     }
 
     public function fetchAll(){
-        return Subvention::where('code_employeur',auth()->user()->code_employeur)
+        return Subvention::where([
+            ['code_employeur',auth()->user()->code_employeur],
+            ['annuler','=', Null]
+        ])
         ->orderBy('updated_at','DESC')
         ->paginate(2);
     }

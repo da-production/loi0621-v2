@@ -37,6 +37,8 @@ class CreateFormationsTable extends Migration
             $table->date('date_recours')->nullable(); //
             $table->boolean('Expired')->nullable()->default(0);
             $table->timestamp('Expired_at')->nullable();
+            $table->boolean('annuler')->nullable();
+            $table->date('annuler_at')->nullable(); 
             $table->timestamps();
         });
     }

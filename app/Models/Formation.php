@@ -20,7 +20,8 @@ class Formation extends Demande
         'reception_dos', 'intervenant', 'ref_reception', 'nature_depot_dos',
         'numero_enrg_registre', 'date_enrg_registre', 'traitement_dos',
         'date_traitement_dos', 'decision_dos', 'cod_rejet', 'date_rejet',
-        'description_rejet', 'Expired', 'Expired_at','date_exercice','date_demande'
+        'description_rejet', 'Expired', 'Expired_at','date_exercice','date_demande',
+        'annuler','annuler_at'
     ];
 
     public static function filter(){

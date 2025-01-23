@@ -115,7 +115,13 @@
                   @endif
                 </td>
                 <td class="text-center">
+                  @if (is_null($demande->annuler))
+                      
                   <span class="badge badge-{{ !is_null($demande->decision_dos) ? ( $demande->decision_dos ? 'success' : 'danger' ) : 'warning'  }}-inverted">{{ !is_null($demande->decision_dos) ? ( $demande->decision_dos ? 'Notification accord' : 'Notification rejet' ) : 'En Cours'  }}</span>
+                  @else
+                  <span class="badge badge-info">Annuler</span>
+                      
+                  @endif
                 </td>
                 <td class="text-center">
                   {{ $demande->created_at }}
