@@ -2,8 +2,11 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\EmployeurMail;
 use App\Models\User;
 use App\Notifications\SendToEmployeurNotification;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
 class SendMailToEmployeurWire extends Component
@@ -30,7 +33,23 @@ class SendMailToEmployeurWire extends Component
             'message'       => 'required|min:10'
         ]);
         $user = User::where('code_employeur',$this->code_employeur)->first();
-        $user->notify(new SendToEmployeurNotification($this->object,$this->message));
+        try{
+            $user->notify(new SendToEmployeurNotification($this->object,$this->message));
+            EmployeurMail::create([
+                'code_employeur'    => $user->code_employeur,
+                'title'             => $this->object,
+                'payload'           => $this->message,
+                'status'            => 'success',
+            ]);
+        }catch(\Exception $e){
+            Log::error($e->getMessage());
+            EmployeurMail::create([
+                'code_employeur'    => $user->code_employeur,
+                'title'             => $this->object,
+                'payload'           => $this->message,
+                'status'            => 'fail',
+            ]);
+        }
         $this->resetVar();
     }
 

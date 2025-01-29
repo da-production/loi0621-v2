@@ -20,14 +20,25 @@ class UserController extends Controller
         $where = [
             ['role_id','!=',1]
         ];
+
+        $onlyCurrentWilaya = null;
         if(auth()->user()->cannot('view-any',Administrateur::class)){
             if(auth()->user()->can('view',Administrateur::class)){
-                array_push($where,['cod_wilaya', auth()->user()->cod_wilaya]);
+                // array_push($where,['cod_wilaya', auth()->user()->cod_wilaya]);
+                $onlyCurrentWilaya = auth()->user()->cod_wilaya;
             }else{
                 abort(403);
             }
         }
-        $users = Administrateur::with(['wilaya'])->where($where)->orderBy('cod_wilaya','ASC')->paginate(10);
+        $users = Administrateur::when(request('user_id'), function($query){
+            $query->where('administrateurs.id',request('user_id'));
+        })
+        ->when($onlyCurrentWilaya, function($query) use ($onlyCurrentWilaya){
+            $query->where('cod_wilaya',$onlyCurrentWilaya);
+        })
+        ->with(['wilaya'])
+        ->orderBy('cod_wilaya','ASC')
+        ->paginate(10);
         
         return view('administrateur.utilisateurs.index', compact(['users']));
     }
@@ -88,7 +99,7 @@ class UserController extends Controller
             $id = Administrateur::where('id',$request->id)->pluck('id')->firstOrFail();
             Administrateur::where('id',$id)->update([
                 'expire'        => $request->filled('expire') ? 1 : 0,
-                'expire_at'     => $request->filled('expire') ?  Carbon::now()->addMonths(2) : null,
+                'expire_at'     => $request->filled('expire') ?  Carbon::now()->addMonths(2)->format("Y-d-m H:i:s.v") : null,
                 'double_auth'   => $request->filled('double_auth') ? 1 : 0,
             ]);
             return back()->withSuccess("la sécurité du compte a été mise à jour");

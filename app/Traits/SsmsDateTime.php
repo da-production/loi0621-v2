@@ -15,7 +15,7 @@ trait SsmsDateTime{
             'SQL2008 R2' => 'Y-m-d H:i:s.v',      // SQL Server 2008 R2 (supports milliseconds)
             'SQL2012' => 'Y-m-d H:i:s.v',         // SQL Server 2012 (supports milliseconds)
             'SQL2014' => 'Y-m-d H:i:s.v',         // SQL Server 2014 (supports milliseconds)
-            'SQL2016' => 'Y-m-d H:i:s.v',         // SQL Server 2016 (supports milliseconds)
+            'SQL2016' => 'Y-d-m H:i:s.v',         // SQL Server 2016 (supports milliseconds)
             'SQL2017' => 'Y-m-d H:i:s.v',         // SQL Server 2017 (supports milliseconds)
             'SQL2019' => 'Y-m-d H:i:s.v',         // SQL Server 2019 (supports milliseconds)
             'SQL2022' => 'Y-m-d H:i:s.v',         // SQL Server 2022 (supports milliseconds)

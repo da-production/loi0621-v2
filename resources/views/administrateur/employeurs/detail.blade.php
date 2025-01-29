@@ -76,8 +76,10 @@
                         <livewire:send-mail-to-employeur-wire :code_employeur='$employeur->code_employeur' />
                     @endcan
                 </div>
+                <livewire:administrateur.employeur-mails-wire :code_employeur="$employeur->code_employeur" />
             </div>
         </div>
+        
     </div>
     <div class="col-sm-7">
         <div class="element-wrapper">

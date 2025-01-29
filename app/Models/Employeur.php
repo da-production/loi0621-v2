@@ -21,6 +21,10 @@ class Employeur extends Model
     //     return 'Y-d-m H:i:s.v';
     // }
 
+    public function mails(){
+        return $this->hasMany(EmployeurMail::class,'code_employeur','numero');
+    }
+
     public function tickets()
     {
         return $this->hasMany(Ticket::class,'code_employeur','code_employeur')->where('owner',1);

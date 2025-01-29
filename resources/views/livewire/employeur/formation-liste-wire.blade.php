@@ -17,7 +17,11 @@
                     <div class="activity-role">
                         {{ $formation->cod_demande }}
                     </div>
-                    <strong class="activity-title">{{ !is_null($formation->decision_dos) ? ($formation->decision_dos == 1 ? 'Notification accord' : 'Notification rejet' ) : 'En Cours'   }}</strong>
+                    @if ($formation->annuler)
+                        <strong class="activity-title">Annuler</strong>
+                    @else
+                        <strong class="activity-title">{{ !is_null($formation->decision_dos) ? ($formation->decision_dos == 1 ? 'Notification accord' : 'Notification rejet' ) : 'En Cours'   }}</strong>
+                    @endif
                     </div>
                     <div class="activity-avatar">
                         <a class="btn btn-primary" href="{{ route('formation.demande.detail', ['num_dossier' => $formation->cod_demande]) }}"><i class="os-icon os-icon-arrow-right"></i> </a>

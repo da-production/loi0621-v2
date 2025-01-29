@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Traits\HasUuid;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\SsmsDateTime;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Subvention extends Demande
 {
@@ -25,5 +26,10 @@ class Subvention extends Demande
         ];
     }
 
+
+
+    protected $casts = [
+        // 'updated_at'        => 'datetime:Y-d-m H:i:s',
+    ];
     
 }

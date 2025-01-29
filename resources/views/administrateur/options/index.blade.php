@@ -27,7 +27,7 @@
                         </li>
                         <li class="nav-item">
                             <a aria-expanded="false" class="nav-link" data-toggle="tab" href="javascript:void(0)" @click="tab='User'">
-                                Utilisateur</a>
+                                Employeur</a>
                         </li>
                     </ul>
                     </ul>

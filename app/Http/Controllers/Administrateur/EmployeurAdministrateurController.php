@@ -36,8 +36,8 @@ class EmployeurAdministrateurController extends Controller
         if($auth->role_id != 1){
             array_push($where,['employeurs.cod_wilaya',$auth->cod_wilaya]);
         }
-        $employeur = Employeur::with(['tickets'])->where($where)->firstOrFail();
-        
+        $employeur = Employeur::with(['tickets','mails'])->where($where)->firstOrFail();
+        // dd($employeur);
         $expired_at = Carbon::parse($employeur->created_at)->addYear(3)->timestamp;
         $created_at = Carbon::parse($employeur->created_at)->timestamp; 
         $now        = Carbon::now()->timestamp;

@@ -25,7 +25,17 @@
                     <div class="result-items col-md-12">
                         @foreach ($users as $user)
                             
-                            <a class="result-item" href="{{ route('administrateur.utilisateur.edit', ['username' => $user->username]) }}" target="_blank">
+                            {{-- <a class="result-item" href="{{ route('administrateur.utilisateur.edit', ['username' => $user->username]) }}" target="_blank">
+                                <span class="icon-w" style="flex:2;font-size:20px"> <i class="os-icon os-icon-folder"></i></span>
+                                <span class="code_employeur">
+                                    <p class="m-0">{{ $user->email}} / {{ $user->username }}</p>
+                                    <p class="m-0 text-{{ $user->status ? 'success' : 'danger' }}" style="font-size: 12px">{{ $user->status ? 'Actif' : 'Inactif' }}</p>
+                                </span>
+                                <span class="ic" style="flex:2">
+                                    <i class="os-icon os-icon-arrow-left7"></i>
+                                </span>
+                            </a> --}}
+                            <a class="result-item" href="{{ route('administrateur.utilsateurs') }}?user_id={{$user->id}}" >
                                 <span class="icon-w" style="flex:2;font-size:20px"> <i class="os-icon os-icon-folder"></i></span>
                                 <span class="code_employeur">
                                     <p class="m-0">{{ $user->email}} / {{ $user->username }}</p>

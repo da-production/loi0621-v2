@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Employeur;
 
 use App\Models\Formation;
+use App\Models\Option;
 use App\Models\Subvention;
 use Livewire\Component;
 use Illuminate\Validation\Rule;
@@ -20,8 +21,14 @@ class DemandeWire extends Component
     public $date_exercice;
 
     public $nbr_travailleurs;
+
+    public $note;
     public function mount()
     {
+        $this->note = Option::where([
+            ['instance','User'],
+            ['name','employeur_note']
+        ])->pluck('value')->first();
         $this->canMakeNewRequest = $this->checkAbility();
     }
 
