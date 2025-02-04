@@ -29,7 +29,7 @@ class SearchSubventionAdminWire extends Component
         if(is_null($this->s) || strlen($this->s) <= 3){
             return [];
         }
-        return Subvention::when($owner, function($query){
+        return Subvention::when($owner, function($query) use($owner){
             $query->where([$owner]);
         })->where([
             ['cod_demande','LIKE','%'.$s.'%'],

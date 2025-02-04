@@ -52,9 +52,9 @@
                                 </div>
                             </div> --}}
                             
-                            <p class="mt-3"><b>Date d'inscription:</b> {{ Carbon\Carbon::parse($employeur->created_at)->format('Y-m-d') }}</p>
+                            <p class="mt-3"><b>Date d'inscription:</b> {{ Carbon\Carbon::parse($employeur->getRawOriginal('created_at'))->format('Y-m-d') }}</p>
                             
-                            <p class="mt-2"><b>Date d'expiration:</b> {{ Carbon\Carbon::parse($employeur->created_at)->addYear(3)->format('Y-m-d') }}</p>
+                            <p class="mt-2"><b>Date d'expiration:</b> {{ Carbon\Carbon::parse($employeur->getRawOriginal('created_at'))->addYear(3)->format('Y-m-d') }}</p>
                         </div>
                     </div>
                 </div>
@@ -322,7 +322,7 @@
                         <div class="activity-box-w">
                         <div class="activity-time">
                             <span>Cree le:</span>
-                            {{ $subvention->created_at }}
+                            {{ $subvention->getRawOriginal('created_at') }}
                         </div>
                         <div class="activity-box border-right-{{ !is_null($subvention->decision_dos) ? ($subvention->decision_dos == 1 ? 'success' : 'danger' ) : 'warning'   }}">
                             <div class="activity-avatar">
@@ -353,7 +353,7 @@
                         <div class="activity-box-w">
                         <div class="activity-time">
                             <span>Cree le:</span>
-                            {{ $formation->created_at }}
+                            {{ $formation->getRawOriginal('created_at') }}
                         </div>
                         <div class="activity-box border-right-{{ !is_null($formation->decision_dos) ? ($formation->decision_dos == 1 ? 'success' : 'danger' ) : 'warning'   }}">
                             <div class="activity-avatar">
@@ -380,7 +380,7 @@
 
 
 @if (!$employeur->user->Expire)
-    @if (Carbon\Carbon::now()->timestamp > Carbon\Carbon::parse($employeur->user->created_at)->addYear(3)->timestamp)
+    @if (Carbon\Carbon::now()->timestamp > Carbon\Carbon::parse($employeur->user->getRawOriginal('created_at'))->addYear(3)->timestamp)
         @section('scripts')
         <script src="{{ asset('assets/js/sweetalert.min.js') }}"></script>
         <script>

@@ -124,7 +124,7 @@
                   @endif
                 </td>
                 <td class="text-center">
-                  {{ $demande->created_at }}
+                  {{ $demande->getRawOriginal('created_at') }}
                 </td>
                 <td class="row-actions">
                   

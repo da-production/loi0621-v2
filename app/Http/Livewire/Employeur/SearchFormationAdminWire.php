@@ -28,7 +28,7 @@ class SearchFormationAdminWire extends Component
         if(is_null($this->s) || strlen($this->s) <= 3){
             return [];
         }
-        return Formation::when($owner, function($query){
+        return Formation::when($owner, function($query) use($owner){
             $query->where([$owner]);
         })->where([
             ['cod_demande','LIKE','%'.$s.'%'],

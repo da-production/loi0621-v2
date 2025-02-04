@@ -158,7 +158,7 @@ class LoginController extends Controller
                     'administrateur_id' => $user->id,
                     'email'             => $user->email,
                     'code'              => random_int(1000, 9999),
-                    'expire'            => env('SQLSRV_VERSION', 'SQL2019') == 'SQL2019' ? Carbon::now()->addMinute(15) : Carbon::now()->addMinute(15)->format('Y-m-d H:i:s.v'),
+                    'expire'            => env('SQLSRV_VERSION', 'SQL2019') == 'SQL2019' ? Carbon::now()->addMinute(15) : Carbon::now()->addMinute(15)->format('Y-d-m H:i:s.v'),
                     'token'             => Str::random(60),
                 ]);
                 $user->notify(new CodeAuthNotification($auth->code));
