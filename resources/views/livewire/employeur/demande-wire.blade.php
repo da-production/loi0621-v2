@@ -46,7 +46,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input class="form-control" wire:model=""
+                        <input class="form-control" wire:model="nbr_travailleurs"
                             required="required" type="number" id="nbr_t" placeholder="Nbr travailleurs">
                         @error('nbr_travailleurs')
                             <p class="text-danger">{{ $message }}</p>
