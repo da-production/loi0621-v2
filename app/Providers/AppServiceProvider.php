@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Directives\DisplaDirectives;
+use App\Models\Demande;
+use App\Models\Formation;
 use App\Repository\Employeur\TaskEmployeur;
 use App\Repository\Employeur\TaskEmployeurInterface;
 use Illuminate\Cache\RateLimiter;
@@ -10,6 +12,10 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use App\Models\Option;
+use App\Models\Subvention;
+use App\Observers\FormationObserver;
+use App\Observers\NewDemandeObserver;
+use App\Observers\SubventionObserver;
 use App\Repository\Demande\Detail;
 use App\Repository\Demande\DetailInterface;
 use Illuminate\Support\Facades\View;
@@ -36,6 +42,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Subvention::observe(SubventionObserver::class);
+        Formation::observe(FormationObserver::class);
         DisplaDirectives::register();
         //
         if(config('app.env') === 'production') {

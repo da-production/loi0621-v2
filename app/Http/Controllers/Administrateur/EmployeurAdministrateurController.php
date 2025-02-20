@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Administrateur;
 
 use App\Models\Employeur;
 use App\Http\Controllers\Controller;
+use App\Models\ApiCheck;
 use App\Models\User;
 use Carbon\Carbon;
 
@@ -42,7 +43,10 @@ class EmployeurAdministrateurController extends Controller
         $created_at = Carbon::parse($employeur->created_at)->timestamp; 
         $now        = Carbon::now()->timestamp;
         $devided = (($expired_at - $now) * 100 ) / ($expired_at - $created_at);
-        
-        return view('administrateur.employeurs.detail', compact(['employeur','devided']));
+
+        $checks = ApiCheck::where('api_name','LIKE','CNAS_EMPLOYEUR::%'.$employeur->code_employeur)->count();
+        $latest = ApiCheck::where('api_name','LIKE','CNAS_EMPLOYEUR::%'.$employeur->code_employeur)->latest()->first();
+        // dd($latest);
+        return view('administrateur.employeurs.detail', compact(['employeur','devided','checks','latest']));
     }
 }

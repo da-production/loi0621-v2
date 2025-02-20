@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire;
 
+use App\Mail\CompletedDossier;
+use App\Models\Administrateur;
 use Livewire\Component;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -9,6 +11,8 @@ use App\Models\File;
 use App\Models\Option;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\File as FileSupport;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class FileUpload extends Component
 {
@@ -93,7 +97,7 @@ class FileUpload extends Component
     {
         $type = $this->typedemande == 'subventions' ? File::TypeSubvention($this->type) : File::TypeFormation($this->type);
 
-        return File::create([
+        $file = File::create([
             'id'                => Str::uuid(),
             'title'             => $type['title'],
             'slug'              => Str::slug($type['title']),
@@ -103,6 +107,22 @@ class FileUpload extends Component
             'code_employeur'    => auth()->user()->code_employeur,
             'code_demande'      => $this->code_demande,
         ]);
+
+        $count = File::where('code_demande',$this->code_demande)->count();
+        // make event listener to send email to admin
+        if($count >= 5){
+            $users = Administrateur::where('cod_wilaya',substr($this->code_employeur,0,2))->pluck('email');
+            try{
+
+                foreach ($users as $user) {
+                    Mail::to($user)->send(new CompletedDossier(route('administrateur.'.$this->typedemande.'.detail',['cod_demande'=>$this->code_demande]),$this->typedemande));
+                }
+                
+            }catch(\Exception $e){
+                Log::error($e->getMessage());
+            }
+        }
+        return $file;
     }
 
     public function render()
@@ -114,7 +134,7 @@ class FileUpload extends Component
             ['code_file',$type['code']],
         ])->first();
 
-
+        
         return !is_null($file) ? view('livewire.updated-file') : view('livewire.file-upload');
     }
 }

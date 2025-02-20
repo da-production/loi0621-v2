@@ -2,6 +2,11 @@
 
 @section('styles')
 <link href="{{ asset('assets/admin/css/chat.css') }}" rel="stylesheet">
+<style>
+    .actif{
+        color: #28a745;
+    }
+</style>
 @livewireStyles()
 @endsection
 @section('content')
@@ -37,8 +42,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="padded">
-                        <div class="os-progress-bar primary">
+                    <div>
+                        @if (!is_null($latest))
+                                @if ($latest->status == 'success')
+                                    <p class="mt-3"><b>État de la dernière vérification:</b> 
+                                        <span class="{{ strtolower(json_decode($latest->response)->cotisant->statut->libelle) }}">{{ json_decode($latest->response)->cotisant->statut->libelle }}</span>
+                                    <b>le:</b> {{ $latest->created_at->format('Y-m-d') }}</p>
+                                @endif
+                            @endif
+                            <p class="mt-3"><b>Nombre total de vérifications:</b> {{ $checks }}</p>
+                    </div>
+                    {{-- <div class="padded">
+                        <div class="os-progress-bar primary"> --}}
                             {{-- <div class="bar-labels">
                                 <div class="bar-label-left">
                                     <span></span><span class="positive"></span>
@@ -52,11 +67,12 @@
                                 </div>
                             </div> --}}
                             
+{{--                             
                             <p class="mt-3"><b>Date d'inscription:</b> {{ Carbon\Carbon::parse($employeur->getRawOriginal('created_at'))->format('Y-m-d') }}</p>
                             
-                            <p class="mt-2"><b>Date d'expiration:</b> {{ Carbon\Carbon::parse($employeur->getRawOriginal('created_at'))->addYear(3)->format('Y-m-d') }}</p>
-                        </div>
-                    </div>
+                            <p class="mt-2"><b>Date d'expiration:</b> {{ Carbon\Carbon::parse($employeur->getRawOriginal('created_at'))->addYear(3)->format('Y-m-d') }}</p> --}}
+                        {{-- </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -382,7 +398,7 @@
 @if (!$employeur->user->Expire)
     @if (Carbon\Carbon::now()->timestamp > Carbon\Carbon::parse($employeur->user->getRawOriginal('created_at'))->addYear(3)->timestamp)
         @section('scripts')
-        <script src="{{ asset('assets/js/sweetalert.min.js') }}"></script>
+        {{-- <script src="{{ asset('assets/js/sweetalert.min.js') }}"></script>
         <script>
             swal({
                 text: "l'employeur a atteint le delai de l'expiration",
@@ -390,7 +406,7 @@
                 button: "Fermer",
                 dangerMode: true,
             });
-        </script>
+        </script> --}}
         @endsection
     @endif
     

@@ -323,7 +323,7 @@
           <div class="form-button">
             <label for="">Notification</label>
             <select class="form-control" name="decision" x-on:change="rejetOpen = ($event.target.value == 'A' ? false : true )">
-                <option value="A"> Accorder</option>
+              <option value="A"> Accorder</option>
                 <option value="R" selected="{{ old('decision') == 'R' ? true: false }}"> Rejeter</option>
             </select>
             @error('decision')

@@ -5,7 +5,7 @@
                 @if (is_null($status))
                 <span aria-hidden="true">
                     <i class="os-icon os-icon-help-circle animated-icon-1"></i>
-                </span> charger l'etat
+                </span> Vérifier l’état de l’employeur.
                 @elseif ($status)
                 <span aria-hidden="true">
                     <i class="os-icon os-icon-check animated-icon-1"></i>
@@ -17,7 +17,7 @@
         </div>
     </div>
     <div class="col-sm-6 text-right">
-        <button class="btn btn-primary btn-sm" wire:click="fetch">
+        <button class="btn btn-primary btn-sm" type="button" wire:click="load">
             <i class="os-icon os-icon-refresh-ccw"></i>
         </button>
     </div>

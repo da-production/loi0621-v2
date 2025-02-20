@@ -26,6 +26,7 @@ class EmployeurService{
             } else {
                 try{
                     $response = Http::post("https://teledeclaration.cnas.dz/srv/cnas/cotisant/cnac/$request->code?usr=cnac&pwd=FD@85_GKwsD01");
+                    dd($response);
                     if (is_null($response['cotisant']['statut'])) {
                         Log::channel('employeur')->warning("[Inscription etape2][".$request->code."] | message: ".$response['message']);
                         return response()->json([
